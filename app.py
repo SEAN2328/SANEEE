@@ -32,11 +32,11 @@ except ModuleNotFoundError as error:
         raise
     st.error(
         "The finlit package could not be found.\n\n"
-        f"Looking in: {Path(__file__).parent}\n\n"
-        "Deploy the whole project, not just app.py. The finlit/ folder has to "
-        "be next to app.py in the repository. It should contain __init__.py, "
-        "content.py, engines.py, languages.py, literacy.py, numbers.py and a "
-        "speech/ folder."
+        f"Looking in: `{Path(__file__).parent}`\n\n"
+        "Deploy the whole project, not just app.py. The `finlit/` folder has "
+        "to be next to `app.py` in the repository. It should contain "
+        "`__init__.py`, `content.py`, `engines.py`, `languages.py`, "
+        "`literacy.py`, `numbers.py` and a `speech/` folder."
     )
     st.stop()
 
