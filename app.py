@@ -15,13 +15,30 @@ that has to be right.
 from __future__ import annotations
 
 from decimal import Decimal
+from pathlib import Path
 from typing import Dict, Tuple
 
 import streamlit as st
 
-from finlit import DOMAINS, __version__, content, engines, languages, literacy
-from finlit.numbers import format_money, money
-from finlit.speech import render_speech_panel
+# The finlit package lives beside this file, so the folder has to be deployed
+# with it. A bare "No module named 'finlit'" says nothing useful about that,
+# which is the one thing someone hitting it on a fresh deploy needs to know.
+try:
+    from finlit import DOMAINS, __version__, content, engines, languages, literacy
+    from finlit.numbers import format_money, money
+    from finlit.speech import render_speech_panel
+except ModuleNotFoundError as error:
+    if error.name != "finlit":
+        raise
+    st.error(
+        "The finlit package could not be found.\n\n"
+        f"Looking in: {Path(__file__).parent}\n\n"
+        "Deploy the whole project, not just app.py. The finlit/ folder has to "
+        "be next to app.py in the repository. It should contain __init__.py, "
+        "content.py, engines.py, languages.py, literacy.py, numbers.py and a "
+        "speech/ folder."
+    )
+    st.stop()
 
 st.set_page_config(
     page_title="Finlit Voice Agents",
