@@ -1,0 +1,38 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Streamlit / Python runtime
+.streamlit/secrets.toml
+*.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test / coverage artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Environment / secrets - never commit API keys or real user financial data
+.env
+.env.*
+*.pem
+*.key
+
+# Local speech model caches
+models/
+*.bin
+*.pt
+*.onnx
